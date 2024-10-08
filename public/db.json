@@ -1,0 +1,40 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "Wireless Headphones",
+      "price": 59.99,
+      "image": "https://alflip.com/uploads/all/1698302125_JBL%20Tune%20510BT%20Wireless%20On-Ear%20Headphones.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Bluetooth Speaker",
+      "price": 79.99,
+      "image": "https://adminapi.applegadgetsbd.com/storage/media/large/JBL-GO-4-Portable-Waterproof-Speaker-Black-4086.jpg"
+    },
+    {
+      "id": 3,
+      "title": "Smartphone Charger",
+      "price": 19.99,
+      "image": "https://img.global.news.samsung.com/global/wp-content/uploads/2020/06/Greener-Galaxy-Smartphone-Chargers_main5.jpg"
+    },
+    {
+      "id": 4,
+      "title": "Laptop Stand",
+      "price": 39.99,
+      "image": "https://static-01.daraz.com.bd/p/3953516fe069b503ed4eb3828ae28ac8.jpg"
+    },
+    {
+      "id": 5,
+      "title": "USB-C Cable",
+      "price": 9.99,
+      "image": "https://images-cdn.ubuy.co.in/633b42c729e89c372468ded5-6ft-wotobeus-usb-c-to-usb-c-cable-5a.jpg"
+    },
+    {
+      "id": 6,
+      "title": "Mechanical Keyboard",
+      "price": 99.99,
+      "image": "https://i.pcmag.com/imagery/articles/044a4pYZNk91QwMe8l3DSM1-5.fit_lim.v1708624706.jpg"
+    }
+  ]
+}
