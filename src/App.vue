@@ -2,6 +2,8 @@
 import { ref } from "vue";
 import Products from "./components/Products.vue";
 import ShoppingCart from "./components/ShoppingCart.vue";
+import AddProduct from "./components/AddProduct.vue";
+import { useToast } from "vue-toastification";
 
 interface Product {
   id: number;
@@ -15,6 +17,7 @@ interface CartItem extends Product {
 }
 
 const cartItems = ref<CartItem[]>([]);
+const toast = useToast();
 
 const addToCart = (product: Product) => {
   const existingItem = cartItems.value.find((item) => item.id === product.id);
@@ -22,6 +25,7 @@ const addToCart = (product: Product) => {
   if (existingItem) {
     existingItem.quantity += 1;
   } else {
+    toast.success("Product added to cart");
     cartItems.value.push({ ...product, quantity: 1 });
   }
 };
@@ -32,6 +36,7 @@ const addToCart = (product: Product) => {
   <div class="container">
     <Products @add-to-cart="addToCart" />
     <ShoppingCart :cartItems="cartItems" />
+    <AddProduct />
   </div>
 </template>
 
