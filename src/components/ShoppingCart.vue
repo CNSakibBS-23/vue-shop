@@ -17,16 +17,35 @@
           </div>
         </div>
       </div>
+
+      <div class="discountFeild-container">
+        <input
+          type="text"
+          placeholder="Enter Coupon"
+          id="coupon"
+          v-model="coupon"
+          :disabled="isCouponApplied"
+        />
+        <button
+          type="submit"
+          @click="handleAddCoupon"
+          :disabled="isCouponApplied"
+        >
+          Apply
+        </button>
+      </div>
+
       <div class="cart-total">
-        <h2>Total Price: ${{ totalPrice.toFixed(2) }}</h2>
+        <h2>Total Price: ${{ discountedPrice.toFixed(2) }}</h2>
       </div>
     </template>
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed, readonly } from "vue";
-import { defineProps } from "vue";
+import { computed, readonly, ref } from "vue";
+import { defineProps, watch } from "vue";
+import { useToast } from "vue-toastification";
 
 interface CartItem {
   id: number;
@@ -38,6 +57,11 @@ interface CartItem {
 
 const props = defineProps<{ cartItems?: CartItem[] }>();
 
+const coupon = ref("");
+const discount = ref(0);
+const isCouponApplied = ref(false);
+const toast = useToast();
+
 const totalPrice = readonly(
   computed(() => {
     return (
@@ -48,6 +72,28 @@ const totalPrice = readonly(
     );
   })
 );
+
+const discountedPrice = computed(() => {
+  return totalPrice.value * (1 - discount.value);
+});
+
+const handleAddCoupon = () => {
+  if (coupon.value === "SAKIB10") {
+    discount.value = 0.1;
+    isCouponApplied.value = true;
+    coupon.value = "";
+    toast.success("Coupon Added Sucessfully");
+  } else {
+    discount.value = 0;
+    toast.error("Invalid Coupon");
+  }
+};
+
+watch(coupon, (newCoupon) => {
+  if (!newCoupon) {
+    isCouponApplied.value = false;
+  }
+});
 </script>
 
 <style scoped>
@@ -58,6 +104,43 @@ const totalPrice = readonly(
 .cart {
   padding: 16px;
   max-width: 300px;
+}
+.discountFeild-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 0;
+}
+.discountFeild-container input {
+  padding: 8px 15px;
+  outline: none;
+  border: 1px solid tomato;
+  border-radius: 10px;
+  margin-right: 5px;
+}
+.discountFeild-container input::placeholder {
+  font-style: italic;
+  font-size: 1em;
+  color: tomato;
+  padding: 5px;
+}
+.discountFeild-container button {
+  padding: 8px 15px;
+  outline: none;
+  border: 1px solid tomato;
+  border-radius: 10px;
+  margin-right: 5px;
+  background-color: tomato;
+  color: white;
+  font-style: italic;
+}
+.discountFeild-container button:disabled {
+  display: none;
+}
+
+.discountFeild-container button:hover {
+  color: black;
+  cursor: pointer;
 }
 
 .cart-items {
