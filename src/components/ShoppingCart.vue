@@ -25,7 +25,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, readonly } from "vue";
 import { defineProps } from "vue";
 
 interface CartItem {
@@ -38,14 +38,16 @@ interface CartItem {
 
 const props = defineProps<{ cartItems?: CartItem[] }>();
 
-const totalPrice = computed(() => {
-  return (
-    props.cartItems?.reduce(
-      (total, item) => total + item.price * item.quantity,
-      0
-    ) ?? 0
-  );
-});
+const totalPrice = readonly(
+  computed(() => {
+    return (
+      props.cartItems?.reduce(
+        (total, item) => total + item.price * item.quantity,
+        0
+      ) ?? 0
+    );
+  })
+);
 </script>
 
 <style scoped>
