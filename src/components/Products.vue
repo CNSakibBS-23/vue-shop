@@ -43,6 +43,9 @@ const addToCart = (product: Product) => {
 onMounted(() => {
   fetchProducts();
 });
+defineExpose({
+  fetchProducts,
+});
 
 watch(products, (newProducts, oldProducts) => {
   console.log("Products updated:", newProducts);
