@@ -1,18 +1,46 @@
 <template>
   <div class="form-container">
     <h1>Add new Product</h1>
-    <input type="text" placeholder="Enter Product Name" required />
-    <input type="number" placeholder="Enter Product Price" required />
-    <input type="text" placeholder="Enter Product Image URL" required />
-    <button type="submit" @click="handleAddProduct">Add product</button>
+    <input type="number" v-model="productId" placeholder="Enter Product id" required />
+    <input type="text" v-model="productTitle" placeholder="Enter Product Name" required />
+    <input type="number" v-model="productPrice" placeholder="Enter Product Price" required />
+    <input type="text" v-model="productImage" placeholder="Enter Product Image URL" required />
+    <button type="button" @click="handleAddProduct">Add product</button>
   </div>
 </template>
 
 <script setup lang="ts">
-const handleAddProduct = () => {
-  console.log("Product Added");
+import axios from 'axios';
+import { ref } from 'vue';
+import { useToast } from 'vue-toastification';
+
+const productId = ref<number | null>(null);
+const productTitle = ref<string>('');
+const productPrice = ref<number | null>(null);
+const productImage = ref<string>('');
+const toast =useToast();
+const handleAddProduct = async () => {
+  try {
+    const addProduct = await axios.post("http://localhost:3000/products", {
+      id: productId.value,
+      title: productTitle.value,
+      price: productPrice.value,
+      image: productImage.value,
+    });
+
+    if(addProduct.status == 201){
+      toast.success("Product Added");
+      productId.value = null;
+      productTitle.value = '';
+      productPrice.value = null;
+      productImage.value = '';
+    }
+  } catch (error) {
+    toast.error("Error adding product");
+  }
 };
 </script>
+
 
 <style scoped>
 .form-container {

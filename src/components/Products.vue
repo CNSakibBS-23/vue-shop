@@ -13,8 +13,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, defineEmits } from "vue";
+import { ref, onMounted, defineEmits, watch } from "vue";
 import Card from "./Card.vue";
+import axios from "axios";
 
 interface Product {
   id: number;
@@ -28,9 +29,8 @@ const emit = defineEmits(["add-to-cart"]);
 
 const fetchProducts = async () => {
   try {
-    const response = await fetch("/db.json");
-    const data = await response.json();
-    products.value = data.products;
+    const response = await axios.get("http://localhost:3000/products");
+    products.value = response.data;
   } catch (error) {
     console.error("Error fetching products:", error);
   }
@@ -42,6 +42,10 @@ const addToCart = (product: Product) => {
 
 onMounted(() => {
   fetchProducts();
+});
+
+watch(products, (newProducts, oldProducts) => {
+  console.log("Products updated:", newProducts);
 });
 </script>
 
