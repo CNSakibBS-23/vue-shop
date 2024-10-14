@@ -17,6 +17,7 @@ interface CartItem extends Product {
 }
 
 const cartItems = ref<CartItem[]>([]);
+const productsRef = ref<InstanceType<typeof Products> | null>(null);
 const toast = useToast();
 
 const addToCart = (product: Product) => {
@@ -29,14 +30,17 @@ const addToCart = (product: Product) => {
     cartItems.value.push({ ...product, quantity: 1 });
   }
 };
+const refreshProducts = () => {
+  productsRef.value?.fetchProducts();
+};
 </script>
 
 <template>
   <h1 class="title">Vue-Shop</h1>
   <div class="container">
-    <Products @add-to-cart="addToCart" />
+    <Products ref="productsRef" @add-to-cart="addToCart" />
     <ShoppingCart :cartItems="cartItems" />
-    <AddProduct />
+    <AddProduct @product-added="refreshProducts" />
   </div>
 </template>
 
