@@ -28,10 +28,10 @@ const addToCart = () => {
 .card {
   border: 1px solid #e2e8f0;
   border-radius: 8px;
-  padding: 10px;
+  padding: 15px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   max-width: 200px;
-  /* margin: 16px; */
+  margin: 16px;
   display: flex;
   flex-direction: column;
   align-items: center;

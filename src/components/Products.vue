@@ -58,12 +58,12 @@ watch(products, (newProducts, oldProducts) => {
   color: tomato;
 }
 .products {
-  padding: 16px;
+  padding: 10px;
 }
 
 .cards-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 20px;
 }
 </style>
