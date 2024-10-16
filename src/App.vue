@@ -40,7 +40,10 @@ const refreshProducts = () => {
       <li><router-link to="/">Products | </router-link></li>
       <li><router-link to="/cart">Shopping Cart | </router-link></li>
       <li><router-link to="/addProduct">Add Product | </router-link></li>
-      <li><router-link to="/validationForm">Validation Form</router-link></li>
+      <li>
+        <router-link to="/validationForm">Validation Form | </router-link>
+      </li>
+      <li><router-link to="/addProductYup">Add Product Yup</router-link></li>
     </ul>
   </nav>
   <div class="container">

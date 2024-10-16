@@ -113,6 +113,24 @@
       "title": "Royal Enfeild ",
       "price": 4,
       "image": "https://images.medialinksonline.com/imagestream/208142/5916499x600x440_FFFFFF_L_0.jpg"
+    },
+    {
+      "id": "e9ad",
+      "title": "TV",
+      "price": 33,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcCMtkISwjMLYpzAfVZWHM91Bv46k2QzACJA&s"
+    },
+    {
+      "id": "cd89",
+      "title": "Logitech Gamepad",
+      "price": 45,
+      "image": "https://ryans.com/storage/products/main/logitech-f310-11548304904.webp"
+    },
+    {
+      "id": "ccd2",
+      "title": "PS5 Controler",
+      "price": 56,
+      "image": "https://m.media-amazon.com/images/I/61IIJGmdmnL._SL1500_.jpg"
     }
   ]
 }
