@@ -41,6 +41,7 @@ import axios from "axios";
 import { Form, Field } from "vee-validate";
 import { object, string, number } from "yup";
 import { useToast } from "vue-toastification";
+import { ApiService } from "@/api";
 
 const emit = defineEmits(["product-added"]);
 const toast = useToast();
@@ -66,13 +67,13 @@ const handleAddProduct = async (
   { resetForm }: any
 ): Promise<void> => {
   try {
-    const response = await axios.post("http://localhost:3000/products", {
+    const response = await ApiService.addProduct({
       title: values.title,
       price: values.price,
       image: values.image,
     });
 
-    if (response.status === 201) {
+    if (response) {
       emit("product-added");
       toast.success("Product added successfully!");
       resetForm();

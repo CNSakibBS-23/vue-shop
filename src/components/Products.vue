@@ -15,7 +15,7 @@
 <script setup lang="ts">
 import { ref, onMounted, defineEmits, watch } from "vue";
 import Card from "./Card.vue";
-import axios from "axios";
+import { ApiService } from "@/api/index";
 
 interface Product {
   id: number;
@@ -29,8 +29,7 @@ const emit = defineEmits(["add-to-cart"]);
 
 const fetchProducts = async () => {
   try {
-    const response = await axios.get("http://localhost:3000/products");
-    products.value = response.data;
+    products.value = await ApiService.fetchProducts();
   } catch (error) {
     console.error("Error fetching products:", error);
   }
