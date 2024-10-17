@@ -3,8 +3,8 @@
     <h1 class="product_title">Our Products</h1>
     <div class="cards-container">
       <Card
-        v-for="product in products"
-        :key="product.id"
+        v-for="product in productStore.products"
+        :key="product.title"
         :product="product"
         @add-to-cart="addToCart"
       />
@@ -13,41 +13,23 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, defineEmits, watch } from "vue";
+import { onMounted, defineEmits } from "vue";
 import Card from "./Card.vue";
-import { ApiService } from "@/api/index";
+import { useProductStore } from "@/stores/productStore";
 
-interface Product {
-  id: number;
-  title: string;
-  price: number;
-  image: string;
-}
-
-const products = ref<Product[]>([]);
+const productStore = useProductStore();
 const emit = defineEmits(["add-to-cart"]);
 
 const fetchProducts = async () => {
-  try {
-    products.value = await ApiService.fetchProducts();
-  } catch (error) {
-    console.error("Error fetching products:", error);
-  }
+  await productStore.fetchProducts();
 };
 
-const addToCart = (product: Product) => {
+const addToCart = (product: any) => {
   emit("add-to-cart", product);
 };
 
 onMounted(() => {
   fetchProducts();
-});
-defineExpose({
-  fetchProducts,
-});
-
-watch(products, (newProducts, oldProducts) => {
-  console.log("Products updated:", newProducts);
 });
 </script>
 

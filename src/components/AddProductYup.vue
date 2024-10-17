@@ -37,14 +37,14 @@
 </template>
 
 <script setup lang="ts">
-import axios from "axios";
 import { Form, Field } from "vee-validate";
 import { object, string, number } from "yup";
 import { useToast } from "vue-toastification";
-import { ApiService } from "@/api";
+import { useProductStore } from "@/stores/productStore";
 
 const emit = defineEmits(["product-added"]);
 const toast = useToast();
+const productStore = useProductStore();
 
 const productSchema = object({
   title: string()
@@ -67,17 +67,15 @@ const handleAddProduct = async (
   { resetForm }: any
 ): Promise<void> => {
   try {
-    const response = await ApiService.addProduct({
+    await productStore.addProduct({
       title: values.title,
       price: values.price,
       image: values.image,
     });
 
-    if (response) {
-      emit("product-added");
-      toast.success("Product added successfully!");
-      resetForm();
-    }
+    emit("product-added");
+    toast.success("Product added successfully!");
+    resetForm();
   } catch (error) {
     toast.error("An error occurred while adding the product.");
   }

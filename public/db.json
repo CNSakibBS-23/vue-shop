@@ -137,6 +137,12 @@
       "title": "Smart Freeze",
       "price": 99,
       "image": "https://media.npr.org/assets/img/2012/05/04/samsung-smart-fridge_custom-595c9aab8b326f699e7ddd8552984d691c231cb3.jpg?s=800&c=85&f=jpeg"
+    },
+    {
+      "id": "099e",
+      "title": "Samsung",
+      "price": 45,
+      "image": "https://images.samsung.com/is/image/samsung/p6pim/bd/sm-m556blgdbng/gallery/bd-galaxy-m55-5g-sm-m556-sm-m556blgdbng-thumb-542626587?$344_344_PNG$"
     }
   ]
 }
