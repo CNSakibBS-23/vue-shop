@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import Products from "./components/Products.vue";
-import ShoppingCart from "./components/ShoppingCart.vue";
-import AddProduct from "./components/AddProduct.vue";
 import { useToast } from "vue-toastification";
 
 interface Product {
@@ -37,10 +35,23 @@ const refreshProducts = () => {
 
 <template>
   <h1 class="title">Vue-Shop</h1>
+  <nav>
+    <ul>
+      <li><router-link to="/">Products | </router-link></li>
+      <li><router-link to="/cart">Shopping Cart | </router-link></li>
+      <li><router-link to="/addProduct">Add Product | </router-link></li>
+      <li>
+        <router-link to="/validationForm">Validation Form | </router-link>
+      </li>
+      <li><router-link to="/addProductYup">Add Product Yup</router-link></li>
+    </ul>
+  </nav>
   <div class="container">
-    <Products ref="productsRef" @add-to-cart="addToCart" />
-    <ShoppingCart :cartItems="cartItems" />
-    <AddProduct @product-added="refreshProducts" />
+    <router-view
+      :cartItems="cartItems"
+      @add-to-cart="addToCart"
+      @product-added="refreshProducts"
+    />
   </div>
 </template>
 
@@ -51,6 +62,31 @@ const refreshProducts = () => {
   align-items: center;
   font: bold;
   color: red;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 0;
+}
+
+nav ul li {
+  cursor: pointer;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: black;
+  font-weight: normal;
+}
+nav ul li a.router-link-exact-active {
+  color: red;
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  color: blue;
 }
 .container {
   display: flex;
