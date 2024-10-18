@@ -90,7 +90,6 @@ const handleAddProduct = async (
   justify-content: center;
   align-items: center;
   padding: 20px;
-  border: 1px dotted skyblue;
 }
 
 .form-container h1 {
@@ -116,7 +115,7 @@ const handleAddProduct = async (
   padding: 10px 30px;
   margin-top: 20px;
   color: white;
-  background-color: blue;
+  background-color: var(--secondary-color);
   border: none;
   border-radius: 5px;
   font-size: 1rem;

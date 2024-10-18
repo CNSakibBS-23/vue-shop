@@ -15,6 +15,11 @@
               ${{ (item.price * item.quantity).toFixed(2) }}
             </p>
           </div>
+          <!-- <i
+            class="pi pi-trash"
+            style="color: red"
+            @click="handleDelete(item.id)"
+          ></i> -->
         </div>
       </div>
 
@@ -46,9 +51,11 @@
 import { computed, readonly, ref } from "vue";
 import { defineProps, watch } from "vue";
 import { useToast } from "vue-toastification";
+import "primeicons/primeicons.css";
+import { useProductStore } from "@/stores/productStore";
 
 interface CartItem {
-  id: number;
+  id: string;
   title: string;
   price: number;
   image: string;
@@ -61,6 +68,7 @@ const coupon = ref("");
 const discount = ref(0);
 const isCouponApplied = ref(false);
 const toast = useToast();
+const productStore = useProductStore();
 
 const totalPrice = readonly(
   computed(() => {
@@ -76,6 +84,11 @@ const totalPrice = readonly(
 const discountedPrice = computed(() => {
   return totalPrice.value * (1 - discount.value);
 });
+
+const handleDelete = async (id: string) => {
+  await productStore.deleteProduct(id);
+  toast.success("Product deleted successfully!");
+};
 
 const handleAddCoupon = () => {
   if (coupon.value === "SAKIB10") {

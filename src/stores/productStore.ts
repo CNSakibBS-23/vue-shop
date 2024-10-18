@@ -3,6 +3,7 @@ import { productApiHandler, ENDPOINTS } from "@/api/index";
 import { ref } from "vue";
 
 interface Product {
+  id?: string;
   title: string;
   price: number;
   image: string;
@@ -36,5 +37,15 @@ export const useProductStore = defineStore("productStore", () => {
     }
   };
 
-  return { products, loading, error, fetchProducts, addProduct };
+  const deleteProduct = async (id: string) => {
+    try {
+      await productApiHandler.delete(`${ENDPOINTS.addProduct}/${id}`);
+      products.value = products.value.filter((product) => product.id !== id);
+    } catch (error: any) {
+      console.error("Error deleting product:", error);
+      error.value = "Failed to delete product";
+    }
+  };
+
+  return { products, loading, error, fetchProducts, addProduct, deleteProduct };
 });
