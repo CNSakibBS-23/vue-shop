@@ -38,7 +38,7 @@ function onSubmit(values) {
 }
 .form_button {
   padding: 8px 10px;
-  background-color: skyblue;
+  background-color: blue;
   outline: none;
   border: none;
   border-radius: 10px;

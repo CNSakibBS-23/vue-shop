@@ -139,7 +139,7 @@ const handleAddProduct = async (): Promise<void> => {
   padding: 10px 30px;
   margin: 10px;
   color: white;
-  background-color: skyblue;
+  background-color: blue;
   border: 1px solid skyblue;
   border-radius: 10px;
   outline: none;
