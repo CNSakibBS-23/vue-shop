@@ -124,7 +124,6 @@ const handleAddProduct = async (): Promise<void> => {
   align-items: center;
   gap: 10px;
   flex-direction: column;
-  border: 1px dotted skyblue;
 }
 .form-container input {
   padding: 20px 30px;
@@ -139,7 +138,7 @@ const handleAddProduct = async (): Promise<void> => {
   padding: 10px 30px;
   margin: 10px;
   color: white;
-  background-color: blue;
+  background-color: var(--secondary-color);
   border: 1px solid skyblue;
   border-radius: 10px;
   outline: none;

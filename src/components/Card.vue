@@ -63,7 +63,7 @@ const addToCart = () => {
 }
 
 .card-button {
-  background-color: #4299e1;
+  background-color: var(--secondary-color);
   color: white;
   padding: 8px 16px;
   border: none;

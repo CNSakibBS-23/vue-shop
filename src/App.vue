@@ -28,9 +28,6 @@ const addToCart = (product: Product) => {
     cartItems.value.push({ ...product, quantity: 1 });
   }
 };
-const refreshProducts = () => {
-  productsRef.value?.fetchProducts();
-};
 </script>
 
 <template>
@@ -47,11 +44,7 @@ const refreshProducts = () => {
     </ul>
   </nav>
   <div class="container">
-    <router-view
-      :cartItems="cartItems"
-      @add-to-cart="addToCart"
-      @product-added="refreshProducts"
-    />
+    <router-view :cartItems="cartItems" @add-to-cart="addToCart" />
   </div>
 </template>
 
@@ -61,7 +54,7 @@ const refreshProducts = () => {
   justify-content: center;
   align-items: center;
   font: bold;
-  color: red;
+  color: var(--primary-color);
 }
 nav ul {
   list-style: none;
@@ -81,7 +74,7 @@ nav ul li a {
   font-weight: normal;
 }
 nav ul li a.router-link-exact-active {
-  color: red;
+  color: var(--secondary-color);
   font-weight: bold;
 }
 

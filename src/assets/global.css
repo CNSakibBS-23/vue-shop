@@ -1,0 +1,35 @@
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #2ecc71;
+  --font-size-base: 16px;
+  --font-size-lg: 18px;
+  --font-size-sm: 14px;
+
+  --max-width-sm: 640px;
+  --max-width-md: 768px;
+  --max-width-lg: 1024px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-size: var(--font-size-base);
+  color: var(--primary-color);
+}
+h1 {
+  color: var(--secondary-color);
+}
+
+@media (max-width: var(--max-width-sm)) {
+  body {
+    font-size: var(--font-size-sm);
+  }
+}
+
+@media (max-width: var(--max-width-lg)) {
+  body {
+    font-size: var(--font-size-lg);
+  }
+}

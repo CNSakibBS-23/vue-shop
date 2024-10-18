@@ -36,7 +36,7 @@ onMounted(() => {
 <style scoped>
 .product_title {
   font: bold;
-  color: tomato;
+  color: var(--secondary-color);
 }
 .products {
   padding: 10px;

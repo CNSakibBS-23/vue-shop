@@ -7,18 +7,6 @@
       "image": "https://alflip.com/uploads/all/1698302125_JBL%20Tune%20510BT%20Wireless%20On-Ear%20Headphones.jpg"
     },
     {
-      "id": "2",
-      "title": "Bluetooth Speaker",
-      "price": 79.99,
-      "image": "https://adminapi.applegadgetsbd.com/storage/media/large/JBL-GO-4-Portable-Waterproof-Speaker-Black-4086.jpg"
-    },
-    {
-      "id": "3",
-      "title": "Smartphone Charger",
-      "price": 19.99,
-      "image": "https://img.global.news.samsung.com/global/wp-content/uploads/2020/06/Greener-Galaxy-Smartphone-Chargers_main5.jpg"
-    },
-    {
       "id": "4",
       "title": "Laptop Stand",
       "price": 39.99,
@@ -143,6 +131,20 @@
       "title": "Samsung",
       "price": 45,
       "image": "https://images.samsung.com/is/image/samsung/p6pim/bd/sm-m556blgdbng/gallery/bd-galaxy-m55-5g-sm-m556-sm-m556blgdbng-thumb-542626587?$344_344_PNG$"
+    },
+    {
+      "id": "9d3d",
+      "title": "Speaker",
+      "price": 45,
+      "image": "https://adminapi.applegadgetsbd.com/storage/media/large/JBL-GO-4-Portable-Waterproof-Speaker-Black-4086.jpg"
+    }
+  ],
+  "cart": [
+    {
+      "id": "1",
+      "title": "Wireless Headphones",
+      "price": 59.99,
+      "image": "https://alflip.com/uploads/all/1698302125_JBL%20Tune%20510BT%20Wireless%20On-Ear%20Headphones.jpg"
     }
   ]
 }
