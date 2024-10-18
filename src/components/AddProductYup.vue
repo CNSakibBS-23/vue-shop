@@ -39,6 +39,7 @@
 <script setup lang="ts">
 import { Form, Field } from "vee-validate";
 import { object, string, number } from "yup";
+
 import { useToast } from "vue-toastification";
 import { useProductStore } from "@/stores/productStore";
 
@@ -115,7 +116,7 @@ const handleAddProduct = async (
   padding: 10px 30px;
   margin-top: 20px;
   color: white;
-  background-color: skyblue;
+  background-color: blue;
   border: none;
   border-radius: 5px;
   font-size: 1rem;
