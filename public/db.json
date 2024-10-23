@@ -137,6 +137,12 @@
       "title": "Speaker",
       "price": 45,
       "image": "https://adminapi.applegadgetsbd.com/storage/media/large/JBL-GO-4-Portable-Waterproof-Speaker-Black-4086.jpg"
+    },
+    {
+      "id": "bf10",
+      "title": "Iphone 16 pro max",
+      "price": 99.99,
+      "image": "https://adminapi.applegadgetsbd.com/storage/media/large/iPhone-16-Pro-Max---16-Pro-Desert-Titanium-1929.jpg"
     }
   ],
   "cart": [
@@ -145,6 +151,15 @@
       "title": "Wireless Headphones",
       "price": 59.99,
       "image": "https://alflip.com/uploads/all/1698302125_JBL%20Tune%20510BT%20Wireless%20On-Ear%20Headphones.jpg"
+    }
+  ],
+  "styles": [
+    {
+      "primaryColor": "#228B22",
+      "secondaryColor": "#8B4513",
+      "fontSizeBase": "20",
+      "fontSizeLg": "24",
+      "fontSizeSm": "18"
     }
   ]
 }

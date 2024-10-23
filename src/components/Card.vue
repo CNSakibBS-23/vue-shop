@@ -3,12 +3,13 @@
     <img :src="product.image" alt="Product image" class="card-image" />
     <h2 class="card-title">{{ product.title }}</h2>
     <p class="card-price">${{ product.price }}</p>
-    <button class="card-button" @click="addToCart">Add to Cart</button>
+    <Button label="Add to Cart" @click="addToCart" />
   </div>
 </template>
 
 <script setup lang="ts">
 import { defineProps, defineEmits } from "vue";
+import Button from "./Button.vue";
 
 const props = defineProps({
   product: {
@@ -50,30 +51,77 @@ const addToCart = () => {
 }
 
 .card-title {
-  font-size: 1.25rem;
+  font-size: var(--font-size-base);
   font-weight: 600;
   margin-bottom: 8px;
   text-align: center;
 }
 
 .card-price {
-  font-size: 1rem;
+  font-size: var(--font-size-sm);
   color: #4a5568;
   margin-bottom: 16px;
 }
-
-.card-button {
-  background-color: var(--secondary-color);
-  color: white;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background-color 0.3s;
+@media (min-width: 0px) and (max-width: 768px) {
+  .card {
+    font-size: var(--font-size-base);
+    max-width: 120px;
+    padding: 10px;
+    margin: 10px;
+  }
+  .card-image {
+    width: 60%;
+    height: 60%;
+    border-radius: 8px;
+    margin-bottom: 12px;
+  }
+  .card-title {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    margin-bottom: 4px;
+    text-align: center;
+  }
 }
 
-.card-button:hover {
-  background-color: #3182ce;
+@media (min-width: 769px) and (max-width: 1024px) {
+  .card {
+    font-size: var(--font-size-sm);
+    max-width: 160px;
+    padding: 12px;
+    margin: 12px;
+  }
+  .card-image {
+    width: 80%;
+    height: 80%;
+    border-radius: 8px;
+    margin-bottom: 14px;
+  }
+  .card-title {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    margin-bottom: 6px;
+    text-align: center;
+  }
+}
+
+@media (min-width: 1025px) {
+  .card {
+    font-size: var(--font-size-lg);
+    max-width: 200px;
+    padding: 15px;
+    margin: 14px;
+  }
+  .card-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    margin-bottom: 16px;
+  }
+  .card-title {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    margin-bottom: 8px;
+    text-align: center;
+  }
 }
 </style>
