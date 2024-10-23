@@ -1,9 +1,9 @@
 :root {
   --primary-color: #3498db;
   --secondary-color: #2ecc71;
-  --font-size-base: 16px;
-  --font-size-lg: 18px;
-  --font-size-sm: 14px;
+  --font-size-base: 14px;
+  --font-size-lg: 16px;
+  --font-size-sm: 12px;
 
   --max-width-sm: 640px;
   --max-width-md: 768px;
@@ -11,8 +11,8 @@
 }
 
 * {
-  margin: 0;
-  padding: 0;
+  margin: 2px;
+  padding: 2px;
 }
 body {
   font-size: var(--font-size-base);
@@ -21,15 +21,31 @@ body {
 h1 {
   color: var(--secondary-color);
 }
-
-@media (max-width: var(--max-width-sm)) {
+@media (min-width: 641px) and (max-width: 768px) {
   body {
+    font-size: var(--font-size-base);
+  }
+  h1 {
+    font-size: var(--font-size-base);
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    font-size: var(--font-size-sm);
+  }
+  h1 {
     font-size: var(--font-size-sm);
   }
 }
 
-@media (max-width: var(--max-width-lg)) {
+@media (min-width: 1025px) {
   body {
     font-size: var(--font-size-lg);
+  }
+  h1 {
+    h1 {
+      font-size: var(--font-size-lg);
+    }
   }
 }

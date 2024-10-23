@@ -43,6 +43,7 @@ productApiHandler.interceptors.response.use(
 const ENDPOINTS = {
   fetchProducts: "/products",
   addProduct: "/products",
+  fetchStyles: "/styles",
   deleteProduct: (id: string) => `/products/${id}`,
 };
 
